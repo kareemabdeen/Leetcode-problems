@@ -1,20 +1,19 @@
 class Solution {
 public:
 int removeElement(vector<int>& nums, int val) {
+    int length=nums.size();
+    int index=0;
 
-    vector<int>::iterator it=nums.begin();
-
-    for(int i=0;i<nums.size();i++)
+    while(index<length)
     {
-        if(nums[i]==val)
+        if(nums[index]==val)
         {
-            nums.erase(it);
-            it--;
-            i--;
+            nums[index]=nums[length-1];
+            length--;
         }
-        it++;
+        else
+            index++;
     }
-    return nums.size();
-
+    return length;
 }
 };
